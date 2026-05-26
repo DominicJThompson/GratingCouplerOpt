@@ -1,0 +1,17 @@
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+
+# tidy3d server-side run cache (regenerable simulation downloads)
+**/fdve-*.hdf5
+**/batch.hdf5

@@ -1,0 +1,7 @@
+tidy3d
+autograd
+optax
+numpy
+matplotlib
+bayesian-optimization
+jupyter
