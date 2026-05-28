@@ -3,5 +3,4 @@ autograd
 optax
 numpy
 matplotlib
-bayesian-optimization
 jupyter

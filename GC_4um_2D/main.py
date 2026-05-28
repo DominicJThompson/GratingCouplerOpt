@@ -31,7 +31,7 @@ w_thick = 0.27  # Waveguide thickness (um).
 w_width = 0.6  # Waveguide width (um).
 w_length = 1.0  # Waveguide length (um).
 border_buffer = 0.16 # buffer around the device
-N_teeth = 15 # number of teeth in the grating
+N_teeth = 7 # number of teeth in the grating
 
 #fiber output permaters all initial
 source_theta = np.deg2rad(10.0) #angle of the fiber output 

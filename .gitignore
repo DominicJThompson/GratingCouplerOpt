@@ -13,5 +13,7 @@ __pycache__/
 .DS_Store
 
 # tidy3d server-side run cache (regenerable simulation downloads)
+**/*.hdf5
 **/fdve-*.hdf5
 **/batch.hdf5
+
