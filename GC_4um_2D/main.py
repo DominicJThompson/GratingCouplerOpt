@@ -36,7 +36,7 @@ N_teeth = 7 # number of teeth in the grating
 #fiber output permaters all initial
 source_theta = np.deg2rad(10.0) #angle of the fiber output 
 mfd = 4 #mode fiber diameter
-source_x = 6.6-3.8 #x position of the fiber 
+source_x = 2.8 #x position of the fiber 
 src_offset = 0.5  # Distance between the source focus and device (um).
 
 # Material definition.
