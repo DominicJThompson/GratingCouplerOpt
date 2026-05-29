@@ -69,7 +69,7 @@ min_steps_per_wvl = 20
 widths_bounds = (0.05, 0.6)
 r0_bounds = (4,7)
 etch_depth_bounds = (0.05, 0.2)
-to_substrate_bounds = (.8,2)
+to_substrate_bounds = (.5,2)
 
 def projection_builder(widths_bounds=widths_bounds, 
     r0_bounds=r0_bounds, 
