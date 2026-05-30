@@ -7,7 +7,7 @@ Both non-stochastic and stochastic gradient descent are studied.
 Simulations are run with [Tidy3D](https://www.flexcompute.com/tidy3d/) FDTD and
 optimized with adjoint gradients using `autograd` + `optax`/Adam. 
 
-Optimize an InP grating coupler for average coupling across 1530–1570 nm and a spot size of 4 $\mu$m. 
+Optimize an InP grating coupler for average coupling across 1530–1570 nm and a spot size of 4 $\mu\text{m}$. 
 Initial optimization is performed on a 2D device before further optimization on the full 3D device. 
 
 ## Main Results
