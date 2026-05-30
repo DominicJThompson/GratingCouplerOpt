@@ -1,28 +1,37 @@
 # GratingCouplerOpt
 
-Inverse design and optimization of integrated grating couplers, plus statistical
-(yield) analysis of how the optimized designs hold up under fabrication variation.
+Inverse design of integrated grating couplers, plus statistical
+(yield) analysis of how the optimized designs hold up under fabrication variation. 
+Both non-stochastic and stochastic gradient descent are studied.
 
 Simulations are run with [Tidy3D](https://www.flexcompute.com/tidy3d/) FDTD and
-optimized with adjoint gradients (`autograd` + `optax`/Adam). Two device families
-are studied:
+optimized with adjoint gradients, optimization preformed with `autograd` + `optax`/Adam. 
 
-- **`GC_4um_2D/`** — 2D InP grating coupler for a 4 µm mode-field-diameter fiber.
-  The main workhorse: initial design, gradient-based optimization, stochastic
-  (fabrication-robust) optimization, and sensitivity analysis.
-- **`GC_3D_4um_Si/`** — 3D silicon grating coupler for a 4 µm fiber, seeded from
-  the 2D results and refined in full 3D.
+Optimize a InP grating coupler for average coupling across 1530-1570nm and a spot size of 4$\mu$m. 
+Initial optimization preformed on a 2D device before further optimization on full 3D device. 
 
-## Setup
+## Main Results
 
-```bash
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-```
+We achive a 70%, 1.6 dB, coupling efficency from the input fiber to the waveguide. The yeild analysis 
+shows a standard deviation of 1% average coupling. This is an increibly efficent design, especially for the small 
+device footprint of roughly 40$\mu m^2$. 
 
-Running Tidy3D simulations requires a Flexcompute account and an API key
-configured via `tidy3d configure`.
+The initial device has the layout shown below:
+
+![Initial Device Layout](media/initial_device.png)
+
+The green field is the input beam and the orange areas are the monitors. 
+
+We allow the size of the teeth and gaps, the etch depth, the length of the taper, and the distance to the substrait to change, within 
+set bounds, during the inverse design proccess. 
+
+We use non-stochastic and stochastic inverse design to account for fabrication variations. 
+The device is assumed to have two parameters that change with the fabrication: the etch depth and the size of the grating teeth. 
+Both follow a normal distributation with mean zero and standard deviation 5.
+
+Below we show the optimziation curves of both optimization types through the 2D and 3D stages:
+
+![Optimization Curves](media/opt_curves.png)
 
 ## Main files
 
@@ -48,7 +57,13 @@ configured via `tidy3d configure`.
 | `analysis.ipynb` | Performance analysis of the optimized device (incident angle, misalignment sweeps). |
 | `data/*.pkl` | Saved optimization states (2D-seed and 3D runs). |
 
-## Notes
+## Setup
 
-`fdve-*.hdf5` and `batch.hdf5` files are Tidy3D server-side run caches and are
-git-ignored (they are regenerated when simulations run).
+```bash
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+Running Tidy3D simulations requires a Flexcompute account and an API key
+configured via `tidy3d configure`.
